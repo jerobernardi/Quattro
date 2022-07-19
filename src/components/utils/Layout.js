@@ -8,7 +8,7 @@ import Home from "../Home";
 import Cards from "../Cards";
 import Contact from "../Contact";
 import Footer from './../Footer'
-import useMobile from "../../hooks/useMobile";
+
 const Site = styled.div`
   width: 100vw;
   height: auto;
@@ -16,19 +16,20 @@ const Site = styled.div`
   flex-direction: column;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 `
 const Layout = ({ children, page }) => {
     return (
         <Site id={page}>
             <Header/>
             <Navbar/>
-            <Page>
+            <Page page={'home'}>
                 <Home/>
             </Page>
-            <Page>
+            <Page page={'about'}>
                 <Cards/>
             </Page>
-            <Page>
+            <Page page={'contact'}>
                 <Contact/>
             </Page>
             <Footer/>

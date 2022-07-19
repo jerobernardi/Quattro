@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from "styled-components"
-import {Lblue, SecondaryTextColor} from "./utils/Constants"
+import {ITgreen, SecondaryTextColor} from "./utils/Constants"
 import sendSVG from './../images/arrow-right-solid.svg'
 import useMobile from "../hooks/useMobile";
 const ContactContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${Lblue};
+  background-color: #1C2E5B;
   display: flex;
   flex-direction: ${props => props.mobile ? 'column' : 'row'};
   align-items: center;
@@ -80,7 +80,7 @@ const ButtonContainer = styled.div`
 `
 const Button = styled.button`
   align-self: end;
-  background-color: #06810a;
+  background-color: ${ITgreen};
   display: flex;
   align-items: center;
   justify-content: center;

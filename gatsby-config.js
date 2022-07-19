@@ -1,7 +1,7 @@
 module.exports = {
+  pathPrefix: '/Quattro',
   siteMetadata: {
-    title: `Gatsby Tutorial site`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Quattro Vidrios`,
   },
   plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-image", "gatsby-plugin-sharp"]
 };

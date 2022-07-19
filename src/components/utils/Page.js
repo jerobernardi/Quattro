@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
+const Container = styled.section`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -9,9 +9,9 @@ const Container = styled.div`
   justify-content: center;
   z-index: 0;
 `
-const Page = ({ children }) => {
+const Page = ({ children, page }) => {
     return (
-        <Container>
+        <Container id={page}>
             {children}
         </Container>
     )

@@ -3,15 +3,14 @@ import styled from "styled-components";
 import BarsSVG from './../images/bars-solid.svg'
 import LogoMobilePNG from './../images/Logo Quattro IT.png'
 import LogoPNG from './../images/Logo Quattro Vidrios IT.png'
-import {Link} from "gatsby";
 import {navHeight} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
 
 const Nav = styled.nav`
   z-index: 99999;
   position: fixed;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   background: rgba(0, 0, 0, 0.22);
   width: 100vw;
   height: ${props => props.showLinks ? '100vh' : navHeight};
@@ -48,10 +47,10 @@ const Sections = styled.div`
   flex-direction: ${props => props.mobile ? 'column' : 'row'};
   justify-content: ${props => props.mobile ? 'start' : 'end'};
   align-items: end;
-  width: 100%;
+  width: ${props => props.grow ? 'auto' : '100%'};
   height: 100%;
 `
-const Section = styled(Link)`
+const Section = styled.a`
   text-decoration: none;
   cursor: pointer;
   font-weight: normal;
@@ -59,7 +58,6 @@ const Section = styled(Link)`
   padding: 15px 5%;
   color: white;
 `
-
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
     const mobile = useMobile()
@@ -71,13 +69,14 @@ const Navbar = () => {
                 </Logo>
                 <RightSide mobile={mobile}>
                     {
-                        mobile && (<img width='40px' height='40px' src={BarsSVG} alt={'menu bars'}
-                                        onClick={() => setShowLinks(!showLinks)}/>)
+                        (mobile && (
+                            <img role={"button"} tabIndex={0} width='40px' height='40px' src={BarsSVG} alt={'menu bars'}
+                                 onClick={() => setShowLinks(!showLinks)}/>))
                         || (
-                            <Sections mobile={mobile}>
-                                <Section to={'#home'}>Home</Section>
-                                <Section to={'#About'}>About</Section>
-                                <Section to={'#Contact'}>Contact us</Section>
+                            <Sections grow={showLinks} mobile={mobile}>
+                                <Section href='#home'>Home</Section>
+                                <Section href='#about'>About</Section>
+                                <Section href='#contact'>Contact us</Section>
                             </Sections>
                         )
                     }
@@ -86,10 +85,10 @@ const Navbar = () => {
             </NavContainer>
             {
                 showLinks && (
-                    <Sections mobile={mobile}>
-                        <Section to={'#home'}>Home</Section>
-                        <Section to={'#About'}>About</Section>
-                        <Section to={'#Contact'}>Contact us</Section>
+                    <Sections grow={showLinks} mobile={mobile}>
+                        <Section href='#home'>Home</Section>
+                        <Section href='#about'>About</Section>
+                        <Section href='#contact'>Contact us</Section>
                     </Sections>
                 )
 
