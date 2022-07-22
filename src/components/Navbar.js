@@ -5,14 +5,14 @@ import LogoMobilePNG from './../images/Logo Quattro IT.png'
 import LogoPNG from './../images/Logo Quattro Vidrios IT.png'
 import {navHeight} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
-
+import xIcon from './../images/x-solid (1).svg'
 const Nav = styled.nav`
   z-index: 99999;
   position: fixed;
   left: 0;
   top: 0;
-  background: rgba(0, 0, 0, 0.22);
-  width: 100vw;
+  background: ${props => props.showLinks ? 'rgba(0, 0, 0, 0.75)': 'rgba(0, 0, 0, 0.22)'};
+  width: 100%;
   height: ${props => props.showLinks ? '100vh' : navHeight};
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@ const Navbar = () => {
                 <RightSide mobile={mobile}>
                     {
                         (mobile && (
-                            <img role={"button"} tabIndex={0} width='40px' height='40px' src={BarsSVG} alt={'menu bars'}
+                            <img role={"button"} tabIndex={0} width='40px' height='40px' src={showLinks ? xIcon : BarsSVG} alt={'menu bars'}
                                  onClick={() => setShowLinks(!showLinks)}/>))
                         || (
                             <Sections grow={showLinks} mobile={mobile}>
@@ -86,9 +86,9 @@ const Navbar = () => {
             {
                 showLinks && (
                     <Sections grow={showLinks} mobile={mobile}>
-                        <Section href='#home'>Home</Section>
-                        <Section href='#about'>About</Section>
-                        <Section href='#contact'>Contact us</Section>
+                        <Section onClick={() => setShowLinks(!showLinks)} href='#home'>Home</Section>
+                        <Section onClick={() => setShowLinks(!showLinks)} href='#about'>About</Section>
+                        <Section onClick={() => setShowLinks(!showLinks)} href='#contact'>Contact us</Section>
                     </Sections>
                 )
 

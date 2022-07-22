@@ -1,8 +1,8 @@
 import React from 'react'
 import card from './../images/card.png'
 import styled from "styled-components";
-import left from './../images/angle-left-solid.svg'
-import right from './../images/angle-right-solid.svg'
+import left from './../images/caret-left-solid.svg'
+import right from './../images/caret-right-solid.svg'
 import useCard from "../hooks/useCard";
 import {SecondaryTextColor} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
@@ -14,7 +14,7 @@ const CardContainer = styled.div`
   flex-direction: ${props => props.mobile ? 'column' : 'row'};
   align-items: center;
   justify-content: ${props => props.mobile ? 'center' : 'space-between'};
-  padding: 5%;
+  padding: 5%; // scale for bigger screens
 `
 const SingleCard = styled.div`
   width: 80%;
@@ -54,7 +54,7 @@ const Slider = styled.img`
   height: 60px;
   width: 60px;
   fill: white;
-  padding: 0 30%;
+  padding: 0;
 `
 const Card = ({img, desc}) => {
     return (

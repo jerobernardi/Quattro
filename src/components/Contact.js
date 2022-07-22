@@ -85,12 +85,12 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  width: 30%;
+  width: auto;
   max-width: 400px;
   height: 30px;
   margin: 10px 0;
   border-radius: 38px;
-  padding: 0;
+  padding: 10px;
   color: white;
 `
 const RightArr = styled.img`
