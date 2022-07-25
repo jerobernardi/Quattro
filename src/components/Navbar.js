@@ -1,21 +1,31 @@
 import React, {useState} from 'react'
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import BarsSVG from './../images/bars-solid.svg'
 import LogoMobilePNG from './../images/Logo Quattro IT.png'
 import LogoPNG from './../images/Logo Quattro Vidrios IT.png'
 import {navHeight} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
-import xIcon from './../images/x-solid (1).svg'
+import xIcon from './../images/x-solid (1).svg';
+const fromRight = keyframes`
+  from {
+    transform: translatex(calc(10vw + ${navHeight}));
+  }
+  to {
+    height: auto;
+    transform: translatex(0);
+  }
+`
 const Nav = styled.nav`
   z-index: 99999;
   position: fixed;
   left: 0;
   top: 0;
-  background: ${props => props.showLinks ? 'rgba(0, 0, 0, 0.75)': 'rgba(0, 0, 0, 0.22)'};
-  width: 100%;
+  background: ${props => props.showLinks ? 'rgba(0,0,0,0.85)': 'rgba(0, 0, 0, 0.22)'};
+  width: 100vw;
   height: ${props => props.showLinks ? '100vh' : navHeight};
   display: flex;
   flex-direction: column;
+  transition: all ease-out .2s ;
 `
 const NavContainer = styled.div`
   display: flex;
@@ -57,6 +67,7 @@ const Section = styled.a`
   font-size: 1.5rem;
   padding: 15px 5%;
   color: white;
+  animation: ${fromRight} ${props => props.order}s 1 linear;
 `
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
@@ -86,9 +97,9 @@ const Navbar = () => {
             {
                 showLinks && (
                     <Sections grow={showLinks} mobile={mobile}>
-                        <Section onClick={() => setShowLinks(!showLinks)} href='#home'>Home</Section>
-                        <Section onClick={() => setShowLinks(!showLinks)} href='#about'>About</Section>
-                        <Section onClick={() => setShowLinks(!showLinks)} href='#contact'>Contact us</Section>
+                        <Section order={0.3} onClick={() => setShowLinks(!showLinks)} href='#home'>Home</Section>
+                        <Section order={0.7} onClick={() => setShowLinks(!showLinks)} href='#about'>About</Section>
+                        <Section order={1} onClick={() => setShowLinks(!showLinks)} href='#contact'>Contact us</Section>
                     </Sections>
                 )
 

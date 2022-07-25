@@ -16,7 +16,6 @@ const Site = styled.div`
   flex-direction: column;
   padding: 0;
   margin: 0;
-  scroll-behavior: smooth;
 `
 const Layout = ({ children, page }) => {
     return (

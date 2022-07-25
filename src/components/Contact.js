@@ -86,7 +86,7 @@ const Button = styled.button`
   justify-content: center;
   border: none;
   width: auto;
-  max-width: 400px;
+  max-width: 450px;
   height: 30px;
   margin: 10px 0;
   border-radius: 38px;
@@ -94,7 +94,7 @@ const Button = styled.button`
   color: white;
 `
 const RightArr = styled.img`
-  width: auto;
+  width: 10px;
   height: 90%;
   margin-left: 5px;
 `
