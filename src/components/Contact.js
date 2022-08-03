@@ -1,8 +1,17 @@
-import React from 'react'
-import styled from "styled-components"
+import React, {useState} from 'react'
+import styled, {keyframes} from "styled-components"
 import {ITgreen, SecondaryTextColor} from "./utils/Constants"
 import sendSVG from './../images/arrow-right-solid.svg'
 import useMobile from "../hooks/useMobile";
+const appear = keyframes`
+  from {
+    height: 0;
+  }
+  
+  to {
+    height: auto;
+  }
+`
 const ContactContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -21,9 +30,12 @@ const ContactSection = styled.div`
   flex-direction: column;
   justify-content: ${props => props.mobile ? 'center' : 'start'};
   align-items: ${props => props.mobile ? 'center' : 'end'};
+  transform: translateX(${props => props.show ? '0' : '-100vw'});
+  transition: all ease-out 1s;
 `
 const FormSection = styled(ContactSection)`
   align-items: ${props => props.mobile ? 'center' : 'start'};
+  transform: translateX(${props => props.show ? '0' : '100vw'});
 `
 const Title = styled.h1`
   font-size: 2.5em;
@@ -55,6 +67,7 @@ const Input = styled.input`
   margin: 10px 5px;
   border-radius: 38px;
   padding: 0 5%;
+  font-size: 16px;
   &:focus {
     border: none;
     outline: none;
@@ -87,7 +100,7 @@ const Button = styled.button`
   border: none;
   width: auto;
   max-width: 450px;
-  height: 30px;
+  height: auto;
   margin: 10px 0;
   border-radius: 38px;
   padding: 10px;
@@ -99,15 +112,16 @@ const RightArr = styled.img`
   margin-left: 5px;
 `
 const Contact = () => {
+    const [hover, setHover] = useState(false);
     const mobile = useMobile()
     return (
-        <ContactContainer mobile={mobile}>
-            <ContactSection mobile={mobile}>
+        <ContactContainer mobile={mobile} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
+            <ContactSection show={hover || mobile} mobile={mobile}>
                 <Title mobile={mobile}>Contactanos</Title>
                 <Info mobile={mobile}>Direccion: Bv Chacabuco 8</Info>
                 <Info mobile={mobile}>Telefono: +54 353 4277653</Info>
             </ContactSection>
-            <FormSection mobile={mobile}>
+            <FormSection show={hover || mobile} mobile={mobile}>
                 <Form mobile={mobile}>
                     <Input placeholder={'Nombre'} type={'text'}/>
                     <Input placeholder={'Correo electrónico'} type={'email'}/>

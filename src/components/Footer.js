@@ -9,12 +9,13 @@ const FooterContainer = styled.div`
   height: 10vh;
   padding: 0;
   margin-top: 10vh;
-  background-color: rgba(91, 20, 28, 0.44);
-  //background-color: ${ITred};
+  //background-color: rgba(91, 20, 28, 0.44);
+  background-color: #990033;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 30px 30px 0 0;
 `
 const Logo = styled.img`
   width: 150px;

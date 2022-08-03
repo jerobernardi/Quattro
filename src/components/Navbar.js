@@ -3,7 +3,7 @@ import styled, {keyframes} from "styled-components";
 import BarsSVG from './../images/bars-solid.svg'
 import LogoMobilePNG from './../images/Logo Quattro IT.png'
 import LogoPNG from './../images/Logo Quattro Vidrios IT.png'
-import {navHeight} from "./utils/Constants";
+import {HeroColor, navHeight} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
 import xIcon from './../images/x-solid (1).svg';
 const fromRight = keyframes`
@@ -68,6 +68,13 @@ const Section = styled.a`
   padding: 15px 5%;
   color: white;
   animation: ${fromRight} ${props => props.order}s 1 linear;
+  transition: all ease-out .3s;
+  border-radius: 50px;
+  &:hover {
+    font-size: 1.6rem;
+    background-color: rgba(0,0,0,0.22);
+    color: ${HeroColor}
+  }
 `
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
@@ -97,9 +104,9 @@ const Navbar = () => {
             {
                 showLinks && (
                     <Sections grow={showLinks} mobile={mobile}>
-                        <Section order={0.3} onClick={() => setShowLinks(!showLinks)} href='#home'>Home</Section>
-                        <Section order={0.7} onClick={() => setShowLinks(!showLinks)} href='#about'>About</Section>
-                        <Section order={1} onClick={() => setShowLinks(!showLinks)} href='#contact'>Contact us</Section>
+                        <Section order={0.15} onClick={() => setShowLinks(!showLinks)} href='#home'>Home</Section>
+                        <Section order={0.3} onClick={() => setShowLinks(!showLinks)} href='#about'>About</Section>
+                        <Section order={0.5} onClick={() => setShowLinks(!showLinks)} href='#contact'>Contact us</Section>
                     </Sections>
                 )
 

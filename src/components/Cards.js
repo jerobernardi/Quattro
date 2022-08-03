@@ -94,7 +94,7 @@ const Cards = () => {
     return (
         <CardSection mobile={mobile}>
             <CardContainer mobile={mobile}>
-                {CardsContent.map((e, index) => <Card img={e.img} desc={e.desc} selected={card}
+                {CardsContent.map((e, index) => <Card key={index} img={e.img} desc={e.desc} selected={card}
                                                       index={index}/>)
 
                 }
