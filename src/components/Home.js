@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
 import bannerImg from  './../images/takahiro-sakamoto-qW2F8rZGEWw-unsplash.jpg'
-import {HeroColor, navHeight} from "./utils/Constants";
+import {HeroColor, navHeight, priText, smallViewport, title} from "./utils/Constants";
 const fromUp = keyframes`
   from {
     transform: translatex(calc(-50vw + ${navHeight}));
@@ -54,12 +54,17 @@ const BackgroundImg = styled.div`
   filter: blur(3px)
 `
 const Hero = styled.h1`
+  font-size: ${title};
   color: ${HeroColor};
   position: relative;
   margin: 0 5%;
   z-index: 1;
   animation: ${props => props.animation} linear 1 2s;
   transition: all ease-out .5s;
+  
+  @media screen and (min-width: ${smallViewport}) {
+    font-size: ${title(smallViewport)};
+  }
 `
 const Home = () => {
     return (

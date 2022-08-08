@@ -4,7 +4,7 @@ import styled from "styled-components";
 import left from './../images/caret-left-solid.svg'
 import right from './../images/caret-right-solid.svg'
 import useCard from "../hooks/useCard";
-import {SecondaryTextColor} from "./utils/Constants";
+import {SecondaryTextColor, secText, smallViewport} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
 
 const CardSection = styled.div`
@@ -18,8 +18,8 @@ const CardSection = styled.div`
   overflow-x: hidden;
 `
 const CardContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 70%;
   display: flex;
   align-items: center;
   justify-content: ${props => props.mobile ? 'center' : 'center'};
@@ -27,19 +27,25 @@ const CardContainer = styled.div`
 `
 const SingleCard = styled.div`
   position: ${props => props.mobile ? 'absolute' : 'relative'};
-  width: ${props => props.selected === props.index || !props.mobile ? '90%' : '0'};
+  width: ${props => props.selected === props.index || !props.mobile ? '80%' : '0'};
   display: flex;
-  height: 80%;
+  height: 70%;
   max-width: 350px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: all ease-out .3s;
+  background-image: url("../images/card.png");
   transform: translateX(${props => props.mobile ? props.index < props.selected
           ? '-100vw' : props.index > props.selected ? '100vw' : '0' : '0'});
   &:hover {
-    width: ${props => !props.mobile ? '100%' : '90%'};
-    height: ${props => !props.mobile ? '90%' : ' 80%'};
+    ${props => !props.mobile ? 'width: 100%;' : ''}
+    ${props => !props.mobile ? 'height: 90%;' : ''}
+  }
+  
+  @media screen and (min-width: ${smallViewport}) {
+    width: ${props => props.selected === props.index || !props.mobile ? '85%' : '0'};
+    height: 75%;
   }
 `
 const CardForm = styled.img`
@@ -50,28 +56,44 @@ const CardForm = styled.img`
   height: inherit;
 `
 const CardImage = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
   background-color: white;
+
+  @media screen and (min-width: ${smallViewport}) {
+    height: 100px;
+    width: 100px;
+  }
 `
 const CardDescription = styled.p`
-  font-size: 1em;
+  font-size: ${secText};
   color: ${SecondaryTextColor};
   max-width: 80%;
+  padding: 0 20px;
   overflow-wrap: break-word;
+  
+  @media screen and (min-width: ${smallViewport}) {
+    font-size: ${secText(smallViewport)};
+  }
 `
 const ButtonContainer = styled.div`
-  margin-top: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50%;
 `
 const Slider = styled.img`
-  height: 60%;
-  width: 60%;
+  height: 50px;
+  width: 50px;
   fill: white;
   padding: 0;
+
+  @media screen and (min-width: ${smallViewport}) {
+    height: 70px;
+    width: 70px;
+  }
+  
 `
 const Card = ({img, desc, selected, index}) => {
     const mobile = useMobile();

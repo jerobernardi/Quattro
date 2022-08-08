@@ -3,7 +3,7 @@ import styled, {keyframes} from "styled-components";
 import BarsSVG from './../images/bars-solid.svg'
 import LogoMobilePNG from './../images/Logo Quattro IT.png'
 import LogoPNG from './../images/Logo Quattro Vidrios IT.png'
-import {HeroColor, navHeight} from "./utils/Constants";
+import {HeroColor, ITred, navHeight, priText, smallViewport} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
 import xIcon from './../images/x-solid (1).svg';
 const fromRight = keyframes`
@@ -64,16 +64,18 @@ const Section = styled.a`
   text-decoration: none;
   cursor: pointer;
   font-weight: normal;
-  font-size: 1.5rem;
+  font-size: ${priText};
   padding: 15px 5%;
   color: white;
   animation: ${fromRight} ${props => props.order}s 1 linear;
   transition: all ease-out .3s;
-  border-radius: 50px;
-  &:hover {
+   &:hover {
     font-size: 1.6rem;
-    background-color: rgba(0,0,0,0.22);
-    color: ${HeroColor}
+    color: ${ITred}
+  }
+  
+  @media screen and (min-width: ${smallViewport}) {
+    font-size: ${priText(smallViewport)};
   }
 `
 const Navbar = () => {
