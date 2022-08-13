@@ -3,7 +3,7 @@ import styled, {keyframes} from "styled-components";
 import BarsSVG from './../images/bars-solid.svg'
 import LogoMobilePNG from './../images/Logo Quattro IT.png'
 import LogoPNG from './../images/Logo Quattro Vidrios IT.png'
-import {HeroColor, ITred, navHeight, priText, smallViewport} from "./utils/Constants";
+import {HeroColor, ITred, mViewport, navHeight, priText, xsViewport} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
 import xIcon from './../images/x-solid (1).svg';
 const fromRight = keyframes`
@@ -74,8 +74,8 @@ const Section = styled.a`
     color: ${ITred}
   }
   
-  @media screen and (min-width: ${smallViewport}) {
-    font-size: ${priText(smallViewport)};
+  @media screen and (min-width: ${mViewport}) {
+    font-size: ${priText(xsViewport)};
   }
 `
 const Navbar = () => {

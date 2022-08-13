@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled, {keyframes} from "styled-components"
-import {ITgreen, priText, SecondaryTextColor, secText, smallViewport, title} from "./utils/Constants"
+import {ITgreen, ITred, mViewport, priText, SecondaryTextColor, secText, smallViewport, title, xmViewport, xsViewport} from "./utils/Constants"
 import sendSVG from './../images/arrow-right-solid.svg'
 import useMobile from "../hooks/useMobile";
 
@@ -23,8 +23,8 @@ const ContactContainer = styled.div`
   justify-content: center;
 `
 const ContactSection = styled.div`
-  width: 50%;
-  max-width: 400px;
+  width: ${props => props.mobile ? '80%' : '50%'};
+  max-width: 600px;
   height: ${props => props.mobile ? 'auto' : '50%'};
   margin: 30px;
   display: flex;
@@ -34,9 +34,24 @@ const ContactSection = styled.div`
   transform: translateX(${props => props.show ? '0' : '-100vw'});
   transition: all ease-out 1s;
 `
+const InfoContainer = styled.div`
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: ${props => props.mobile ? 'column' : 'row'};
+  align-items: center;
+
+  @media screen and (min-width: ${mViewport}) {
+    max-width: 800px;
+  }
+`
 const FormSection = styled(ContactSection)`
   align-items: ${props => props.mobile ? 'center' : 'start'};
   transform: translateX(${props => props.show ? '0' : '100vw'});
+  
+  @media screen and (min-wdith: ${mViewport}) {
+    width: fit-content;
+  }
 `
 const Title = styled.h1`
   font-size: ${title};
@@ -46,19 +61,47 @@ const Title = styled.h1`
   margin: 5px 10px;
   text-align: ${props => props.mobile ? 'start' : 'end'};
 
-  @media screen and (min-width: ${smallViewport}) {
-    font-size: ${title(smallViewport)};
+  @media screen and (min-width: ${xsViewport}) {
+    font-size: ${title(xsViewport)};
+  }
+
+  @media screen and (min-width: ${mViewport}) {
+    font-size: ${title(mViewport)}
   }
 `
 const Info = styled.h3`
-  color: ${SecondaryTextColor};
-  font-size: ${priText};
-  margin: 5px 10px;
+  color: white;
+  font-size: ${secText};
+  margin: 0 10px;
   width: 100%;
   text-align: ${props => props.mobile ? 'start' : 'end'};
 
-  @media screen and (min-width: ${smallViewport}) {
-    font-size: ${priText(smallViewport)};
+  @media screen and (min-width: ${xsViewport}) {
+    font-size: ${secText(xsViewport)};
+  }
+  @media screen and (min-width: ${xmViewport}) {
+    flex: 2;
+  }
+  @media screen and (min-wdith: ${mViewport}) {
+    font-size: ${secText(mViewport)};
+    margin: 0;
+  }
+`
+const Label = styled.h3`
+  color: ${ITgreen};
+  font-size: ${priText};
+  margin: 10px 10px 0 10px;
+  width: 100%;
+  text-align: ${props => props.mobile ? 'start' : 'end'};
+
+  @media screen and (min-width: ${xsViewport}) {
+    font-size: ${secText(xsViewport)};
+  }
+  @media screen and (min-width: ${xmViewport}) {
+    flex: 1;
+  }
+  @media screen and (min-wdith: ${mViewport}) {
+    font-size: ${secText(mViewport)};
   }
 `
 const Form = styled.form`
@@ -82,9 +125,10 @@ const Input = styled.input`
     outline: none;
   }
 
-  @media screen and (min-width: ${smallViewport}) {
-    font-size: ${secText(smallViewport)};
+  @media screen and (min-width: ${xsViewport}) {
+    font-size: ${secText(xsViewport)};
   }
+
 `
 const TextArea = styled.textarea`
   border: none;
@@ -101,14 +145,15 @@ const TextArea = styled.textarea`
     outline: none;
   }
 
-  @media screen and (min-width: ${smallViewport}) {
-    font-size: ${secText(smallViewport)};
+  @media screen and (min-width: ${xsViewport}) {
+    font-size: ${secText(xsViewport)};
   }
 `
 const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
+  max-width: 400px;
 `
 const Button = styled.button`
   align-self: end;
@@ -126,8 +171,8 @@ const Button = styled.button`
   color: white;
   font-size: ${secText};
   
-  @media screen and (min-width: ${smallViewport}) {
-    font-size: ${secText(smallViewport)};
+  @media screen and (min-width: ${xsViewport}) {
+    font-size: ${secText(xsViewport)};
   }
 `
 const RightArr = styled.img`
@@ -140,10 +185,20 @@ const Contact = () => {
     const mobile = useMobile()
     return (
         <ContactContainer mobile={mobile} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
-            <ContactSection show={hover || mobile} mobile={mobile}>
+            <ContactSection show={hover || mobile} mobile={mobile}> 
                 <Title mobile={mobile}>Contactanos</Title>
-                <Info mobile={mobile}>Direccion: {mobile ? <br/> : ''}Bv Chacabuco 8</Info>
-                <Info mobile={mobile}>Telefono: {mobile ? <br/> : ''}+54 353 4277653</Info>
+                <InfoContainer mobile={mobile}>
+                  <Label mobile={mobile}>Correos electrónicos:</Label>
+                  <Info mobile={mobile}>administracion@quattrovidrios.com.ar <br/> ventas@quattrovidrios.com.ar</Info>
+                </InfoContainer>
+                <InfoContainer mobile={mobile}>
+                  <Label mobile={mobile}>Dirección:</Label>
+                  <Info mobile={mobile}>Bv. Alvear 1850</Info>
+                </InfoContainer>
+                <InfoContainer mobile={mobile}>
+                  <Label mobile={mobile}>Teléfonos:</Label>
+                  <Info mobile={mobile}>3534728586 - 3534728587</Info>
+                </InfoContainer>
             </ContactSection>
             <FormSection show={hover || mobile} mobile={mobile}>
                 <Form mobile={mobile}>

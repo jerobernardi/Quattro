@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 // This hook is used to determine whether should render mobile view.
 const useMobile = () => {
-    const [screenWidth, setScreenWidth] = useState();
+    const [screenWidth, setScreenWidth] = useState(false);
     useEffect(() => {
-        if (screenWidth === undefined) setScreenWidth(window.screen.width)
-        window.addEventListener('resize', () => {
-            setScreenWidth(window.screen.width)
-        })
-    }, [screenWidth])
-
-    return screenWidth <= 992
+        setScreenWidth(window.screen.width <= 992)
+        window.addEventListener('resize', () => setScreenWidth(window.screen.width <= 992))
+        console.log(window.screen.width)
+    }, [])
+    return screenWidth
 }
 export default useMobile;

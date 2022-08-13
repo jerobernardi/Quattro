@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import LogoImg from './../images/Logo Quattro IT.png'
-import {ITred, secText, smallViewport} from "./utils/Constants";
+import {ITred, secText, xsViewport} from "./utils/Constants";
 const FooterContainer = styled.div`
   position: relative;
   bottom: 0;
@@ -25,8 +25,8 @@ const Copyright = styled.p`
   font-size: ${secText};
   margin: 0;
 
-  @media screen and (min-width: ${smallViewport}) {
-    font-size: ${secText(smallViewport)};
+  @media screen and (min-width: ${xsViewport}) {
+    font-size: ${secText(xsViewport)};
   }
 `
 const Footer = () => {
