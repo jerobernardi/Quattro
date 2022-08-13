@@ -5,7 +5,6 @@ const useMobile = () => {
     useEffect(() => {
         setScreenWidth(window.screen.width <= 992)
         window.addEventListener('resize', () => setScreenWidth(window.screen.width <= 992))
-        console.log(window.screen.width)
     }, [])
     return screenWidth
 }

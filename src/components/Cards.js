@@ -126,7 +126,6 @@ const Slider = styled.img`
 const Card = ({img, desc, selected, index, title}) => {
     const [hover, setHover] = useState(false)
     const mobile = useMobile();
-    console.log(hover)
     return (
       <SingleCard onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} selected={selected} index={index} mobile={mobile}>
         <CardForm src={card} alt='polygon card quattro'/>
