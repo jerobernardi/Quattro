@@ -149,13 +149,13 @@ const Card = ({img, desc, selected, index, title}) => {
 const Cards = () => {
     const mobile = useMobile();
     const CardsContent = [{
-        img: '', title: 'LAMINADO', desc: 'Entregamos a pedido todo tipo de medidas, hasta 6000mm x 3210mm. Ofrecemos el laminado en paquetes y en hojas, y a medida.Gracias al uso de PVB y SentryGlas®, nuestros vidrios logran mayor seguridad y control de rayos ultravioleta. Además, disponemos de PVB acústicos'
+        img: '', title: 'LAMINADO', desc: 'Ofrecemos el laminado en paquetes y en hojas a medida.Los mejores vidrios de seguridad en Argentina gracias al uso de láminas PVB y SentryGlas®'
     }, {
-        img: '', title: 'DVH Y TVH', desc: 'Ahora Argentina cuenta con la línea de Doble y Triple acristalamiento más avanzada de América.Podés conformar DVH y TVH, combinando en tus pedidos desde vidrios incoloros tradicionales a especiales de capa, con espaciadores de diferentes prestaciones y colores, agregando gas argón. Además, incorporamos el más eficiente separador: TPS de Kommerling, además de ofrecer medidas de separación específicas, garantiza la ruptura térmica y la estanqueidad, evitando posibles fugas del gas argón.Única línea en Sudamérica totalmente robotizada con capacidad de procesar vidrios offset en cuatro lados de manera automática. Entregamos piezas perfectas gracias al control riguroso de nuestro sistema de escaneo.'
+        img: '', title: 'DVH Y TVH', desc: 'Podés conformar DVH y TVH, combinando en tus pedidos desde vidrios tradicionales a especiales de capa. Incorporamos el más eficiente separador: TPS de Kommerling, capaz de ofrecer medidas de separación específicas.'
     }, {
-        img: '', title: 'TRATAMIENTO TÉRMICO', desc: 'Somos la primera planta automatizada para procesar vidrios con coating en todos sus lineas. Contamos con garantía de precisión inigualable en cortes, perforaciones, mecanizados, pulidos de cantos y bordes, con un nivel de calidad único en el Argentina. Además, el equipo utilizado para limpiar los restos se adapta automáticamente a cada tipo de vidrio. Cada vidrio pasa por un escáner que verifica el cristal, consiguiendo la entrega de piezas perfectas. No más rayas, ni defectos de calidad.'
+        img: '', title: 'TRATAMIENTO TÉRMICO', desc: 'El horno utilizado para templados y termoendurecidos es el más moderno a nivel mundial. Esto nos permite marcar otra diferencia en la industria; eliminando deformaciones y distorsiones.'
     }, {
-      img: '', title: 'CORTE, BORDES Y MECANIZADOS', desc: 'El horno utilizado para templados y termoendurecidos es el más moderno a nivel mundial. Esto nos permite marcar otra diferencia en la industria; eliminando deformaciones y distorsiones. Nuestros vidrios templados superan el estándar de calidad más alto a nivel internacional.'
+      img: '', title: 'CALIDAD SUPERIOR', desc: 'Trabajamos con la planta más avanzada de Latinoamérica, contamos con garantía de precisión inigualable en cortes, perforaciones, mecanizados, pulidos de cantos y bordes, con un nivel de calidad único en el Argentina. No más rayas, ni defectos de calidad.'
     }]
     const [card, prev, next] = useCard(CardsContent.length);
     return (

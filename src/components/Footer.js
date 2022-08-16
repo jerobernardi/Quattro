@@ -10,7 +10,7 @@ const FooterContainer = styled.div`
   padding: 0 0 5px 0;
   margin-top: 5vh;
   //background-color: rgba(91, 20, 28, 0.44);
-  background-color: ${ITred};
+  background-color: #990033;
   display: flex;
   flex-direction: column;
   align-items: center;

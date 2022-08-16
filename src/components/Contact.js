@@ -184,7 +184,7 @@ const Contact = () => {
     const [hover, setHover] = useState(false);
     const mobile = useMobile()
     return (
-        <ContactContainer mobile={mobile} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
+        <ContactContainer mobile={mobile} onMouseOver={() => setHover(true)}>
             <ContactSection show={hover || mobile} mobile={mobile}> 
                 <Title mobile={mobile}>Contactanos</Title>
                 <InfoContainer mobile={mobile}>
