@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import LogoImg from './../images/Logo Quattro IT.png'
-import {ITred, secText, xsViewport} from "./utils/Constants";
+import {secText, xsViewport} from "./utils/Constants";
 const FooterContainer = styled.div`
   position: relative;
   bottom: 0;

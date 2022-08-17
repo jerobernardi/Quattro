@@ -1,18 +1,9 @@
 import React, {useState} from 'react'
-import styled, {keyframes} from "styled-components"
-import {ITgreen, ITred, mViewport, priText, SecondaryTextColor, secText, smallViewport, title, xmViewport, xsViewport} from "./utils/Constants"
+import styled from "styled-components"
+import {ITgreen, mViewport, priText, secText, title, xmViewport, xsViewport} from "./utils/Constants"
 import sendSVG from './../images/arrow-right-solid.svg'
 import useMobile from "../hooks/useMobile";
 
-const appear = keyframes`
-  from {
-    height: 0;
-  }
-  
-  to {
-    height: auto;
-  }
-`
 const ContactContainer = styled.div`
   width: 100%;
   height: 100%;

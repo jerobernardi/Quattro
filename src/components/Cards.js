@@ -4,7 +4,7 @@ import styled from "styled-components";
 import left from './../images/caret-left-solid.svg'
 import right from './../images/caret-right-solid.svg'
 import useCard from "../hooks/useCard";
-import {xmViewport, SecondaryTextColor, secText, xsViewport, mViewport, title, priText} from "./utils/Constants";
+import {xmViewport, SecondaryTextColor, secText, xsViewport, mViewport, priText} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
 
 const CardSection = styled.div`

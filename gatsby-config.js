@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/Quattro',
+  pathPrefix: '/',
   siteMetadata: {
     title: `Quattro Vidrios`,
   },
