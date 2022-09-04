@@ -6,6 +6,8 @@ import right from './../images/caret-right-solid.svg'
 import useCard from "../hooks/useCard";
 import {xmViewport, SecondaryTextColor, secText, xsViewport, mViewport, priText} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
+import templadosImg from './../images/Templados.jpg'
+import tvhImg from './../images/TVH.png'
 
 const CardSection = styled.div`
   width: 90%;
@@ -80,7 +82,7 @@ const CardTitle = styled.h3`
     font-size: ${priText(xsViewport)};
   }
 `
-const CardImage = styled.div`
+const CardImage = styled.img`
   width: 50px;
   height: 50px;
   margin-bottom: 20px;
@@ -130,12 +132,12 @@ const Card = ({img, desc, selected, index, title}) => {
       <SingleCard onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} selected={selected} index={index} mobile={mobile}>
         <CardForm src={card} alt='polygon card quattro'/>
         {
-          mobile && <><CardImage/>
+          mobile && <><CardImage src={img} alt="Quattro products"/>
           <CardDescription>{desc}</CardDescription></>
         }
         {
           hover && !mobile && (
-          <><CardImage/>
+          <><CardImage src={img} alt="Quattro products"/>
           <CardDescription>{desc}</CardDescription></>
           )
         }{
@@ -151,9 +153,9 @@ const Cards = () => {
     const CardsContent = [{
         img: '', title: 'LAMINADO', desc: 'Ofrecemos el laminado en paquetes y en hojas a medida.Los mejores vidrios de seguridad en Argentina gracias al uso de láminas PVB y SentryGlas®'
     }, {
-        img: '', title: 'DVH Y TVH', desc: 'Podés conformar DVH y TVH, combinando en tus pedidos desde vidrios tradicionales a especiales de capa. Incorporamos el más eficiente separador: TPS de Kommerling, capaz de ofrecer medidas de separación específicas.'
+        img: tvhImg, title: 'DVH Y TVH', desc: 'Podés conformar DVH y TVH, combinando en tus pedidos desde vidrios tradicionales a especiales de capa. Incorporamos el más eficiente separador: TPS de Kommerling, capaz de ofrecer medidas de separación específicas.'
     }, {
-        img: '', title: 'TRATAMIENTO TÉRMICO', desc: 'El horno utilizado para templados y termoendurecidos es el más moderno a nivel mundial. Esto nos permite marcar otra diferencia en la industria; eliminando deformaciones y distorsiones.'
+        img: templadosImg, title: 'TEMPLADOS', desc: 'El horno utilizado para templados y termoendurecidos es el más moderno a nivel mundial. Esto nos permite marcar otra diferencia en la industria; eliminando deformaciones y distorsiones.'
     }, {
       img: '', title: 'CALIDAD SUPERIOR', desc: 'Trabajamos con la planta más avanzada de Latinoamérica, contamos con garantía de precisión inigualable en cortes, perforaciones, mecanizados, pulidos de cantos y bordes, con un nivel de calidad único en el Argentina. No más rayas, ni defectos de calidad.'
     }]

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {ITgreen, mViewport, priText, secText, title, xmViewport, xsViewport} from "./utils/Constants"
 import sendSVG from './../images/arrow-right-solid.svg'
 import useMobile from "../hooks/useMobile";
+import useForm from '../hooks/useForm';
 
 const ContactContainer = styled.div`
   width: 100%;
@@ -161,6 +162,7 @@ const Button = styled.button`
   padding: 10px;
   color: white;
   font-size: ${secText};
+  cursor: pointer;
   
   @media screen and (min-width: ${xsViewport}) {
     font-size: ${secText(xsViewport)};
@@ -174,6 +176,23 @@ const RightArr = styled.img`
 const Contact = () => {
     const [hover, setHover] = useState(false);
     const mobile = useMobile()
+    const { getField, setField} = useForm({name: '', email: '', message: ''})
+    const submit = async e => {
+      e.preventDefault()
+      alert("Esta funcionalidad aún no está habilitada")
+      // const data = {
+      //   name: getField('name'),
+      //   email: getField('email'),
+      //   message: getField('message')
+      // }
+      // fetch('http://localhost:3000/', {
+      //   method: 'POST',
+      //   body: JSON.stringify(data),
+      //   headers: {
+      //     accept: 'application/json'
+      //   }
+      // }).then(res => console.log(res))
+    }
     return (
         <ContactContainer mobile={mobile} onMouseOver={() => setHover(true)}>
             <ContactSection show={hover || mobile} mobile={mobile}> 
@@ -192,10 +211,10 @@ const Contact = () => {
                 </InfoContainer>
             </ContactSection>
             <FormSection show={hover || mobile} mobile={mobile}>
-                <Form mobile={mobile}>
-                    <Input placeholder={'Nombre'} type={'text'}/>
-                    <Input placeholder={'Correo electrónico'} type={'email'}/>
-                    <TextArea placeholder={'Escriba su mensaje'}/>
+                <Form mobile={mobile} onSubmit={submit}>
+                    <Input placeholder={'Nombre'} type={'text'} value={getField('name')} onChange={e => setField('name', e.target.value)}/>
+                    <Input placeholder={'Correo electrónico'} type={'email'} value={getField('email')} onChange={e => setField('email', e.target.value)}/>
+                    <TextArea placeholder={'Escriba su mensaje'} value={getField('message')} onChange={e => setField('message', e.target.value)}/>
                     <ButtonContainer>
                         <Button type={'submit'}>Enviar <RightArr src={sendSVG} alt={'send email'}/></Button>
                     </ButtonContainer>

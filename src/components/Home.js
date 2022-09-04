@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
-import bannerImg from  './../images/takahiro-sakamoto-qW2F8rZGEWw-unsplash.jpg'
+import bannerImg from  './../images/piel_de_vidrio_sol.png'
 import {HeroColor, mViewport, navHeight, sViewport, title, xsViewport} from "./utils/Constants";
 const fromUp = keyframes`
   from {
@@ -51,7 +51,6 @@ const BackgroundImg = styled.div`
   position: absolute;
   background-image: url(${bannerImg});
   background-size: cover;
-  filter: blur(3px)
 `
 const Hero = styled.h1`
   font-size: ${title};
@@ -74,8 +73,8 @@ const Home = () => {
     return (
         <Banner>
             <BackgroundImg/>
-            <Hero animation={fromUp}>We Provide Glass.</Hero>
-            <Hero animation={fromDown}>We provide transparency</Hero>
+            <Hero animation={fromUp}>Ofrecemos Vidrio</Hero>
+            <Hero animation={fromDown}>Proveemos transparencia</Hero>
         </Banner>
     )
 }

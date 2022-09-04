@@ -18,12 +18,15 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.0.7",
+    "express": "^4.18.1",
     "gatsby": "^4.17.1",
     "gatsby-cli": "^4.17.1",
     "gatsby-plugin-image": "^2.17.0",
+    "gatsby-plugin-manifest": "^4.22.0",
     "gatsby-plugin-sharp": "^4.17.0",
     "gatsby-plugin-styled-components": "^5.17.0",
     "gatsby-source-filesystem": "^4.17.0",
+    "nodemailer": "^6.7.8",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "styled-components": "^5.3.5"
@@ -31,6 +34,5 @@
   "devDependencies": {
     "gh-pages": "^4.0.0"
   },
-
-  "homepage": "https://jerobernardi.github.io/quattro"
+  "homepage": "https://quattrovidrios.com.ar"
 }
