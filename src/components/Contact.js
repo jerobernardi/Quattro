@@ -4,6 +4,7 @@ import {ITgreen, mViewport, priText, secText, title, xmViewport, xsViewport} fro
 import sendSVG from './../images/arrow-right-solid.svg'
 import useMobile from "../hooks/useMobile";
 import useForm from '../hooks/useForm';
+const axios = require('axios').default;
 
 const ContactContainer = styled.div`
   width: 100%;
@@ -167,6 +168,11 @@ const Button = styled.button`
   @media screen and (min-width: ${xsViewport}) {
     font-size: ${secText(xsViewport)};
   }
+
+  &:hover {
+    border: 1px solid;
+    border-color: white
+  }
 `
 const RightArr = styled.img`
   width: 10px;
@@ -176,22 +182,27 @@ const RightArr = styled.img`
 const Contact = () => {
     const [hover, setHover] = useState(false);
     const mobile = useMobile()
-    const { getField, setField} = useForm({name: '', email: '', message: ''})
-    const submit = async e => {
+    const form = useForm({name: '', email: '', message: ''})
+    const submit = async (e) => {
       e.preventDefault()
-      alert("Esta funcionalidad aún no está habilitada")
-      // const data = {
-      //   name: getField('name'),
-      //   email: getField('email'),
-      //   message: getField('message')
-      // }
-      // fetch('http://localhost:3000/', {
-      //   method: 'POST',
-      //   body: JSON.stringify(data),
-      //   headers: {
-      //     accept: 'application/json'
-      //   }
-      // }).then(res => console.log(res))
+      const body = {
+        name: form.data.name,
+        email: form.data.email,
+        message: form.data.message
+      }
+      console.log('On submit:', {body})
+      axios.post('http://localhost:3000/', body).then(response => {
+        const { status, data } = response
+        if (status === 200) {
+          alert("Su mensaje a sido enviado correctamente. Revisaremos su consulta lo antes posible!")
+        } else {
+          alert("Hubo un problema al entregar su mensaje. Por favor intente nuevamente, o utilice otro medio para contactarnos")
+        }
+        form.clear()
+      }).catch(err => {
+        console.log(err.code)
+        alert(err.message + ": En estos momentos el servicio mail no esta disponible.\n Por favor comuniquese a traves de nuestros otros medios.\n Disculpe las molestias!")
+      })
     }
     return (
         <ContactContainer mobile={mobile} onMouseOver={() => setHover(true)}>
@@ -212,11 +223,11 @@ const Contact = () => {
             </ContactSection>
             <FormSection show={hover || mobile} mobile={mobile}>
                 <Form mobile={mobile} onSubmit={submit}>
-                    <Input placeholder={'Nombre'} type={'text'} value={getField('name')} onChange={e => setField('name', e.target.value)}/>
-                    <Input placeholder={'Correo electrónico'} type={'email'} value={getField('email')} onChange={e => setField('email', e.target.value)}/>
-                    <TextArea placeholder={'Escriba su mensaje'} value={getField('message')} onChange={e => setField('message', e.target.value)}/>
+                    <Input placeholder={'Nombre'} type={'name'} value={form.data.name} onChange={e => form.setField('name', e.target.value)}/>
+                    <Input placeholder={'Correo electrónico'} type={'email'} value={form.data.email} onChange={e => form.setField('email', e.target.value)}/>
+                    <TextArea placeholder={'Escriba su mensaje'} value={form.data.message} onChange={e => form.setField('message', e.target.value)}/>
                     <ButtonContainer>
-                        <Button type={'submit'}>Enviar <RightArr src={sendSVG} alt={'send email'}/></Button>
+                        <Button type='submit'>Enviar <RightArr src={sendSVG} alt={'send email'}/></Button>
                     </ButtonContainer>
                 </Form>
             </FormSection>
