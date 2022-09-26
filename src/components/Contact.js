@@ -181,10 +181,12 @@ const RightArr = styled.img`
 `
 const Contact = () => {
     const [hover, setHover] = useState(false);
+    const [ready, setReady] = useState(true)
     const mobile = useMobile()
     const form = useForm({name: '', email: '', message: ''})
     const submit = async (e) => {
       e.preventDefault()
+      setReady(false)
       const body = {
         name: form.data.name,
         email: form.data.email,
@@ -192,18 +194,21 @@ const Contact = () => {
       }
       console.log('On submit:', {body})
       axios.post('http://localhost:3000/', body).then(response => {
-        const { status, data } = response
+        const { status } = response
         if (status === 200) {
           alert("Su mensaje a sido enviado correctamente. Revisaremos su consulta lo antes posible!")
         } else {
           alert("Hubo un problema al entregar su mensaje. Por favor intente nuevamente, o utilice otro medio para contactarnos")
         }
         form.clear()
+        setReady(true)
       }).catch(err => {
         console.log(err.code)
         alert(err.message + ": En estos momentos el servicio mail no esta disponible.\n Por favor comuniquese a traves de nuestros otros medios.\n Disculpe las molestias!")
+        setReady(true)
       })
     }
+    console.log(ready)
     return (
         <ContactContainer mobile={mobile} onMouseOver={() => setHover(true)}>
             <ContactSection show={hover || mobile} mobile={mobile}> 
@@ -227,7 +232,7 @@ const Contact = () => {
                     <Input placeholder={'Correo electrónico'} type={'email'} value={form.data.email} onChange={e => form.setField('email', e.target.value)}/>
                     <TextArea placeholder={'Escriba su mensaje'} value={form.data.message} onChange={e => form.setField('message', e.target.value)}/>
                     <ButtonContainer>
-                        <Button type='submit'>Enviar <RightArr src={sendSVG} alt={'send email'}/></Button>
+                        <Button type='submit'>{ready ? 'Enviar' : 'Enviando...'} {ready && <RightArr src={sendSVG} alt={'send email'}/>}</Button>
                     </ButtonContainer>
                 </Form>
             </FormSection>
