@@ -46,7 +46,6 @@ const SingleCard = styled.div`
   align-items: center;
   justify-content: center;
   transition: all ease-out .3s;
-  background-image: url("../images/card.png");
   transform: translateX(${props => props.mobile ? props.index < props.selected
           ? '-100vw' : props.index > props.selected ? '100vw' : '0' : '0'});
   &:hover {

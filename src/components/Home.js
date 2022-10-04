@@ -55,12 +55,13 @@ const BackgroundImg = styled.div`
 const Hero = styled.h1`
   font-size: ${title};
   color: ${HeroColor};
+  text-shadow: 1.5px 1.5px 3px black;
   position: relative;
   margin: 0 5%;
   z-index: 1;
   animation: ${props => props.animation} linear 1 2s;
   transition: all ease-out .5s;
-  
+
   @media screen and (min-width: ${xsViewport}) {
     font-size: ${title(xsViewport)};
   }

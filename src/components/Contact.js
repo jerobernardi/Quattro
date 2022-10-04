@@ -24,7 +24,6 @@ const ContactSection = styled.div`
   flex-direction: column;
   justify-content: ${props => props.mobile ? 'center' : 'start'};
   align-items: ${props => props.mobile ? 'center' : 'end'};
-  transform: translateX(${props => props.show ? '0' : '-100vw'});
   transition: all ease-out 1s;
 `
 const InfoContainer = styled.div`
@@ -40,7 +39,6 @@ const InfoContainer = styled.div`
 `
 const FormSection = styled(ContactSection)`
   align-items: ${props => props.mobile ? 'center' : 'start'};
-  transform: translateX(${props => props.show ? '0' : '100vw'});
   
   @media screen and (min-wdith: ${mViewport}) {
     width: fit-content;
@@ -180,7 +178,6 @@ const RightArr = styled.img`
   margin-left: 5px;
 `
 const Contact = () => {
-    const [hover, setHover] = useState(false);
     const [ready, setReady] = useState(true)
     const mobile = useMobile()
     const form = useForm({name: '', email: '', message: ''})
@@ -210,8 +207,8 @@ const Contact = () => {
     }
     console.log(ready)
     return (
-        <ContactContainer mobile={mobile} onMouseOver={() => setHover(true)}>
-            <ContactSection show={hover || mobile} mobile={mobile}> 
+        <ContactContainer mobile={mobile}>
+            <ContactSection mobile={mobile}> 
                 <Title mobile={mobile}>Contactanos</Title>
                 <InfoContainer mobile={mobile}>
                   <Label mobile={mobile}>Correos electrónicos:</Label>
@@ -226,7 +223,7 @@ const Contact = () => {
                   <Info mobile={mobile}>3534728586 - 3534728587</Info>
                 </InfoContainer>
             </ContactSection>
-            <FormSection show={hover || mobile} mobile={mobile}>
+            <FormSection mobile={mobile}>
                 <Form mobile={mobile} onSubmit={submit}>
                     <Input placeholder={'Nombre'} type={'name'} value={form.data.name} onChange={e => form.setField('name', e.target.value)}/>
                     <Input placeholder={'Correo electrónico'} type={'email'} value={form.data.email} onChange={e => form.setField('email', e.target.value)}/>
