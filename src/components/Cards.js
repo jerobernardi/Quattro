@@ -4,7 +4,7 @@ import styled from "styled-components";
 import left from './../images/caret-left-solid.svg'
 import right from './../images/caret-right-solid.svg'
 import useCard from "../hooks/useCard";
-import {xmViewport, SecondaryTextColor, secText, xsViewport, mViewport, priText} from "./utils/Constants";
+import {xmViewport, SecondaryTextColor, secText, xsViewport, mViewport, priText, ITred, ITgreen, HeroColor} from "./utils/Constants";
 import useMobile from "../hooks/useMobile";
 import templadosImg from './../images/Templados.jpg'
 import tvhImg from './../images/TVH.png'
@@ -60,7 +60,7 @@ const SingleCard = styled.div`
 
   @media screen and (min-width: ${xmViewport}) {
     width: ${props => props.selected === props.index || !props.mobile ? '100%' : '0'};
-    margin: 0 10px
+    margin: 0 10px;
   }  
 `
 const CardForm = styled.img`
@@ -72,7 +72,8 @@ const CardForm = styled.img`
 `
 const CardTitle = styled.h3`
   font-size: ${priText};
-  color: white;
+  // color: white;
+  color: ${ITgreen};
   width: 100%;
   max-width: 400px;
   margin: 5px 10px;

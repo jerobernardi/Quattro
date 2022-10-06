@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
 import bannerImg from  './../images/piel_de_vidrio_sol.png'
-import {HeroColor, mViewport, navHeight, sViewport, title, xsViewport} from "./utils/Constants";
+import {HeroColor, ITgreen, ITred, mViewport, navHeight, sViewport, title, xsViewport} from "./utils/Constants";
 const fromUp = keyframes`
   from {
     transform: translatex(calc(-50vw + ${navHeight}));
@@ -53,9 +53,11 @@ const BackgroundImg = styled.div`
   background-size: cover;
 `
 const Hero = styled.h1`
+  width:100%;
+  text-align:center;
   font-size: ${title};
-  color: ${HeroColor};
-  text-shadow: 1.5px 1.5px 3px black;
+  color: black;
+  text-shadow: 2px 3px 2.5px ${HeroColor};
   position: relative;
   margin: 0 5%;
   z-index: 1;
