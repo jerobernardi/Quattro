@@ -94,9 +94,9 @@ const Navbar = () => {
                                  onClick={() => setShowLinks(!showLinks)}/>))
                         || (
                             <Sections grow={showLinks} mobile={mobile}>
-                                <Section href='#home'>Home</Section>
-                                <Section href='#about'>About</Section>
-                                <Section href='#contact'>Contact us</Section>
+                                <Section href='#home'>Inicio</Section>
+                                <Section href='#about'>Sobre nosotros</Section>
+                                <Section href='#contact'>Contacto</Section>
                             </Sections>
                         )
                     }

@@ -8,8 +8,14 @@ import {xmViewport, SecondaryTextColor, secText, xsViewport, mViewport, priText,
 import useMobile from "../hooks/useMobile";
 import templadosImg from './../images/Templados.jpg'
 import tvhImg from './../images/TVH.png'
+import camion from './../images/CAMION.jpeg'
 
 const CardSection = styled.div`
+  background-image: url('${camion}');
+  background-size: cover;
+  // background-image: repeating-linear-gradient(45deg, #009633 0, #009633 1.5px, transparent 0, transparent 50%);
+  // background-size: 54px 54px;
+  // background-color: #ffffff;
   width: 90%;
   height: 90%;
   display: flex;
@@ -37,6 +43,11 @@ const CardContainer = styled.div`
   }
 `
 const SingleCard = styled.div`
+  background: rgba(28,46,91,0.5);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(5px);
+  border: 5px solid rgba(28,46,91,0.8);
+  border-radius: 10px;
   position: ${props => props.mobile ? 'absolute' : 'relative'};
   width: ${props => props.selected === props.index || !props.mobile ? '80%' : '0'};
   display: flex;
@@ -72,8 +83,8 @@ const CardForm = styled.img`
 `
 const CardTitle = styled.h3`
   font-size: ${priText};
-  // color: white;
-  color: ${ITgreen};
+  color: rgba(28,46,91,1);
+  // color: ${ITgreen};
   width: 100%;
   max-width: 400px;
   margin: 5px 10px;
@@ -95,7 +106,8 @@ const CardImage = styled.img`
 `
 const CardDescription = styled.p`
   font-size: ${secText};
-  color: ${SecondaryTextColor};
+  // color: ${SecondaryTextColor};
+  color: white;
   max-width: 80%;
   padding: 0 20px;
   max-height: 150px;
@@ -130,7 +142,6 @@ const Card = ({img, desc, selected, index, title}) => {
     const mobile = useMobile();
     return (
       <SingleCard onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} selected={selected} index={index} mobile={mobile}>
-        <CardForm src={card} alt='polygon card quattro'/>
         {
           mobile && <><CardImage src={img} alt="Quattro products"/>
           <CardDescription>{desc}</CardDescription></>

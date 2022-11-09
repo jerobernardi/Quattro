@@ -8,7 +8,7 @@ const axios = require('axios').default;
 
 const ContactContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 70%;
   background-color: #1C2E5B;
   display: flex;
   flex-direction: ${props => props.mobile ? 'column' : 'row'};
@@ -23,7 +23,7 @@ const ContactSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: ${props => props.mobile ? 'center' : 'start'};
-  align-items: ${props => props.mobile ? 'center' : 'end'};
+  align-items: center;
   transition: all ease-out 1s;
 `
 const InfoContainer = styled.div`
@@ -32,7 +32,11 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: ${props => props.mobile ? 'column' : 'row'};
   align-items: center;
-
+  border-bottom: solid 2px #990033;
+  border-right: solid 2px #990033;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
   @media screen and (min-width: ${mViewport}) {
     max-width: 800px;
   }
@@ -50,7 +54,7 @@ const Title = styled.h1`
   width: 100%;
   max-width: 400px;
   margin: 5px 10px;
-  text-align: ${props => props.mobile ? 'start' : 'end'};
+  text-align: ${props => props.mobile ? 'start' : 'center'};
 
   @media screen and (min-width: ${xsViewport}) {
     font-size: ${title(xsViewport)};
@@ -223,7 +227,7 @@ const Contact = () => {
                   <Info mobile={mobile}>3534728586 - 3534728587</Info>
                 </InfoContainer>
             </ContactSection>
-            <FormSection mobile={mobile}>
+            {/* <FormSection mobile={mobile}>
                 <Form mobile={mobile} onSubmit={submit}>
                     <Input placeholder={'Nombre'} type={'name'} value={form.data.name} onChange={e => form.setField('name', e.target.value)}/>
                     <Input placeholder={'Correo electrónico'} type={'email'} value={form.data.email} onChange={e => form.setField('email', e.target.value)}/>
@@ -232,7 +236,7 @@ const Contact = () => {
                         <Button type='submit'>{ready ? 'Enviar' : 'Enviando...'} {ready && <RightArr src={sendSVG} alt={'send email'}/>}</Button>
                     </ButtonContainer>
                 </Form>
-            </FormSection>
+            </FormSection> */}
         </ContactContainer>
     )
 }
