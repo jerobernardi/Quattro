@@ -83,7 +83,8 @@ const CardForm = styled.img`
 `
 const CardTitle = styled.h3`
   font-size: ${priText};
-  color: rgba(28,46,91,1);
+  // color: rgba(28,46,91,1);
+  color: white;
   // color: ${ITgreen};
   width: 100%;
   max-width: 400px;
@@ -143,12 +144,14 @@ const Card = ({img, desc, selected, index, title}) => {
     return (
       <SingleCard onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} selected={selected} index={index} mobile={mobile}>
         {
-          mobile && <><CardImage src={img} alt="Quattro products"/>
+          mobile && <>
+          {/* <CardImage src={img} alt="Quattro products"/> */}
           <CardDescription>{desc}</CardDescription></>
         }
         {
           hover && !mobile && (
-          <><CardImage src={img} alt="Quattro products"/>
+          <>
+          {/* <CardImage src={img} alt="Quattro products"/> */}
           <CardDescription>{desc}</CardDescription></>
           )
         }{
@@ -162,11 +165,11 @@ const Card = ({img, desc, selected, index, title}) => {
 const Cards = () => {
     const mobile = useMobile();
     const CardsContent = [{
-        img: '', title: 'LAMINADO', desc: 'Ofrecemos el laminado en paquetes y en hojas a medida.Los mejores vidrios de seguridad en Argentina gracias al uso de láminas PVB y SentryGlas®'
+        img: '', title: 'LAMINADO', desc: 'Podemos cumplir con todos tus requisitos de vidrio laminado, incluyendo la laminación de vidrios LOW-E y PVB acusticos. Utilizamos materiales de alta calidad como PVB y SentryGlas®, los cuales brindan una excelente resistencia y durabilidad.'
+      }, {
+      img: '', title: 'DVH Y TVH', desc: 'puedes combinar vidrios tradicionales y especiales de capa para conformar DVH y TVH. Contamos con el separador más eficiente del mercado, el TPS de Kommerling, el cual nos permite ofrecer medidas de separación específicas y adaptadas a tus necesidades además de mejorar las prestaciones.'
     }, {
-        img: tvhImg, title: 'DVH Y TVH', desc: 'Podés conformar DVH y TVH, combinando en tus pedidos desde vidrios tradicionales a especiales de capa. Incorporamos el más eficiente separador: TPS de Kommerling, capaz de ofrecer medidas de separación específicas.'
-    }, {
-        img: templadosImg, title: 'TEMPLADOS', desc: 'El horno utilizado para templados y termoendurecidos es el más moderno a nivel mundial. Esto nos permite marcar otra diferencia en la industria; eliminando deformaciones y distorsiones.'
+        img: '' , title: 'TEMPLADOS', desc: 'Nuestro horno de templado y termoendurecido es el más avanzado del mundo. Elimina deformaciones y distorsiones, lo que nos permite destacar en la industria.'
     }, {
       img: '', title: 'CALIDAD SUPERIOR', desc: 'Trabajamos con la planta más avanzada de Latinoamérica, contamos con garantía de precisión inigualable en cortes, perforaciones, mecanizados, pulidos de cantos y bordes, con un nivel de calidad único en el Argentina. No más rayas, ni defectos de calidad.'
     }]

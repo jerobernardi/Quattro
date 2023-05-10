@@ -18,7 +18,8 @@ const ContactContainer = styled.div`
 const ContactSection = styled.div`
   width: ${props => props.mobile ? '80%' : '50%'};
   max-width: 600px;
-  height: ${props => props.mobile ? 'auto' : '50%'};
+  // height: ${props => props.mobile ? 'auto' : '50%'};
+  height: auto;
   margin: 30px;
   display: flex;
   flex-direction: column;
@@ -37,6 +38,7 @@ const InfoContainer = styled.div`
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
+  height: 100%;
   @media screen and (min-width: ${mViewport}) {
     max-width: 800px;
   }
@@ -52,6 +54,7 @@ const Title = styled.h1`
   font-size: ${title};
   color: white;
   width: 100%;
+  height: 100%;
   max-width: 400px;
   margin: 5px 10px;
   text-align: ${props => props.mobile ? 'start' : 'center'};

@@ -74,11 +74,11 @@ const Hero = styled.h1`
 `
 const Home = () => {
     return (
-        <Banner>
-            <BackgroundImg/>
-            <Hero animation={fromUp}>Ofrecemos Vidrio</Hero>
-            <Hero animation={fromDown}>Proveemos transparencia</Hero>
-        </Banner>
+      <Banner>
+        <BackgroundImg/>
+        <Hero animation={fromUp}>Donde la transparencia es la clave</Hero>
+        {/* <Hero animation={fromDown}>Proveemos transparencia</Hero> */}
+      </Banner>
     )
 }
 export default Home
