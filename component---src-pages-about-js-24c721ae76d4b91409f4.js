@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkquattro_vidrios=self.webpackChunkquattro_vidrios||[]).push([[682],{4633:function(e,t,a){a.r(t);var l=a(7294),u=a(3787);t.default=function(){return l.createElement(u.Z,{pageTitle:"About"},l.createElement("p",null,"Blablablal"))}}}]);
+//# sourceMappingURL=component---src-pages-about-js-24c721ae76d4b91409f4.js.map
