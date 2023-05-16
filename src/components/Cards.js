@@ -81,7 +81,7 @@ const CardForm = styled.img`
   width: inherit;
   height: ${props => props.mobile ? 'inherit' : '100%'};
 `
-const CardTitle = styled.h3`
+const CardTitle = styled.h2`
   font-size: ${priText};
   // color: rgba(28,46,91,1);
   color: white;

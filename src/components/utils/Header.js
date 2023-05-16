@@ -23,6 +23,10 @@ const Header = () => {
                 href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&display=swap"
                 rel="stylesheet"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+                <meta name="description" content="Quattro Vidrios. Distribucion directo de fabrica al mejor precio del mercado. No dudes en CONTACTARNOS para obtener tu PRESUPUESTO"/>
+                <meta name="title" content="Quattro Vidrios"></meta>
+                <meta name="location" content="Cordoba, Argentina"/>
+                
         </header>
     )
 }

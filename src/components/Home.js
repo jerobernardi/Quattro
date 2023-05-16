@@ -76,8 +76,8 @@ const Home = () => {
     return (
       <Banner>
         <BackgroundImg/>
-        <Hero animation={fromUp}>Donde la transparencia es la clave</Hero>
-        {/* <Hero animation={fromDown}>Proveemos transparencia</Hero> */}
+        <Hero animation={fromUp}>Quattro Vidrios</Hero>
+        <Hero animation={fromDown}>Donde la transparencia es la clave</Hero>
       </Banner>
     )
 }

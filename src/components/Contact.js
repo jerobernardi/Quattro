@@ -50,7 +50,7 @@ const FormSection = styled(ContactSection)`
     width: fit-content;
   }
 `
-const Title = styled.h1`
+const Title = styled.h2`
   font-size: ${title};
   color: white;
   width: 100%;
