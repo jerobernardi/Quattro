@@ -227,7 +227,7 @@ const Contact = () => {
                 </InfoContainer>
                 <InfoContainer mobile={mobile}>
                   <Label mobile={mobile}>Teléfonos:</Label>
-                  <Info mobile={mobile}>3534728586 - 3534728587</Info>
+                  <Info mobile={mobile}>3534086446</Info>
                 </InfoContainer>
             </ContactSection>
             {/* <FormSection mobile={mobile}>
